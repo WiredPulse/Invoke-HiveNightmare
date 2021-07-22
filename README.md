@@ -1,2 +1,8 @@
 # Invoke-HiveNightmare
-PoC for CVE-2021-36934, which enables a standard user to be able to retrieve the SAM, Security, and Software Registry hives in Windows 10 version 1809 or newer
+PowerShell-based PoC for CVE-2021-36934, which enables a standard user to be able to retrieve the SAM, Security, and Software Registry hives in Windows 10 version 1809 or newer.
+
+# Situation
+In specific versions of Windows 10, standard users have read/execute rights to files in [SYSTEMROOT]\System32\Config directory, which is where the Registry hives reside on disk. One can't however, simply navigate to the directory and copy/paste as the hives are loaded and into memory upon system boot and are locked. A standard user can retrieve the hives from Volume Shadow Copies if they exist. 
+
+# Credits
+The vulnerability was discovered by @jonasLyk.
