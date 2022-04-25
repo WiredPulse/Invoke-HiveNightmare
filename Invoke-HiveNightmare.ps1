@@ -26,7 +26,7 @@
 
 [CmdletBinding()]
 param(
-       $path = "C:\Users\$username\Desktop"
+       $path = "C:\Users\$env:USERNAME\Desktop"
 )
 
 $outSam = "$path\Sam.hive"
