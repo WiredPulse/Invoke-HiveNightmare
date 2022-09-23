@@ -20,7 +20,7 @@
     .NOTES  
         File Name      : Invoke-HiveNightmare.ps1
         Version        : v.0.2
-        Author         : @WiredPulse
+        Author         : @WiredPulse, Edit: @ZephrFish
         Created        : 21 Jul 21
 #>
 
