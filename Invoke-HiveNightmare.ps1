@@ -30,7 +30,7 @@ param(
 )
 
 $outSam = "$path\Sam.hive"
-$outSoft = "$path\Soft.hive"
+$outSoft = "$path\Security.hive"
 $outSys = "$path\Sys.hive"
 
 if(-not(test-path $path)){
